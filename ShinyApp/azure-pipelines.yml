@@ -10,9 +10,9 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '2ce0b4b1-d62b-4769-a872-9af1a968964f'
+  dockerRegistryServiceConnection: ''
   imageRepository: 'shinyappimage'
-  containerRegistry: 'azukschishinyacrd1.azurecr.io'
+  containerRegistry: 'myazurecontainerrepository.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/DOCKERFILE'
   tag: '$(Build.BuildId)'
   
@@ -37,4 +37,3 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           latest
-          # $(tag)

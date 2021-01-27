@@ -30,13 +30,6 @@ proxy:
     container-image: openanalytics/shinyproxy-demo
     container-network: sp-example-net
     access-groups: scientists
-  - id: testapp
-    display-name: Test application
-    description: Docker test application
-    container-cmd: ["R", "-e", "shiny::runApp('/root/testApp')"]
-    container-image: testimage
-    container-network: sp-example-net
-    access-groups: scientists
   - id: testapp2
     display-name: Test application from container
     description: Docker test application

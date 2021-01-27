@@ -1,0 +1,56 @@
+proxy:
+  title: Open Analytics Shiny Proxy
+  port: 8080
+  authentication: simple
+  admin-groups: scientists
+  # Example: 'simple' authentication configuration
+  users:
+  - name: jack
+    password: password
+    groups: scientists
+  - name: jeff
+    password: password
+    groups: mathematicians
+
+  docker:
+      internal-networking: true
+      # url setting needed FOR WINDOWS ONLY
+      # url: http://host.docker.internal:2375
+
+  specs:
+  - id: 01_hello
+    display-name: Hello Application
+    description: Application which demonstrates the basics of a Shiny app
+    container-cmd: ["R", "-e", "shinyproxy::run_01_hello()"]
+    container-image: openanalytics/shinyproxy-demo
+    container-network: sp-example-net
+    access-groups: [scientists, mathematicians]
+  - id: 06_tabsets
+    container-cmd: ["R", "-e", "shinyproxy::run_06_tabsets()"]
+    container-image: openanalytics/shinyproxy-demo
+    container-network: sp-example-net
+    access-groups: scientists
+  - id: testapp
+    display-name: Test application
+    description: Docker test application
+    container-cmd: ["R", "-e", "shiny::runApp('/root/testApp')"]
+    container-image: testimage
+    container-network: sp-example-net
+    access-groups: scientists
+  - id: testapp2
+    display-name: Test application from container
+    description: Docker test application
+    container-cmd: ["R", "-e", "shiny::runApp('/root/testApp')"]
+    container-image: myazurecontainerrepository.azurecr.io/shinyappimage
+    container-network: sp-example-net
+    access-groups: scientists
+
+logging:
+  file:
+    shinyproxy.log
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB

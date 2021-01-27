@@ -1,0 +1,25 @@
+/*
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    font-family: Fira Sans;
+    background-color: #EFF1F5;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    background-color: #fff;
+    height: auto;
+}
+
+    .footer > .container > .row {
+        margin-top: -25px !important;
+    }

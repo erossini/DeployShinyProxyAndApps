@@ -6,3 +6,6 @@ For data scientists, ShinyApps offer the possibility to quickly create cute web 
 So, we will use [ShinyProxy](https://shinyproxy.io/) to add a security layer. This makes the deployment a bit harder but we will take advantage of that. The pipeline in Azure DevOps for ShinyProxy will be similar to the pipeline for a ShinyApp. I will show in this post how to create a Docker container for ShinyProxy and ShinyProxy.
 
 This repository is related to the post "Deploy ShinyApps with Azure and Docker" on my blog [PureSourceCode](https://www.puresourcecode.com). The post is titled [Deploy ShinyApps with Azure and Docker](https://www.puresourcecode.com/programming-languages/r/deploy-shinyapps-with-azure-and-docker/).
+
+## Update
+In this post I show how to customize your pipeline and other external files in Azure DevOps using variables from the Library https://www.puresourcecode.com/tools/azure-tools/customize-your-pipeline-in-azure-devops/
